@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&subset=cyrillic,latin&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -8,34 +8,24 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
-
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
-
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
-
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
-
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
-
     --radius: 0.5rem;
-
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -44,33 +34,40 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Jade palette */
+    --jade-deep: #0d1f0f;
+    --jade-dark: #132b14;
+    --jade-mid: #1a3d1b;
+    --jade-green: #2d6a30;
+    --jade-light: #4a9e50;
+    --jade-pale: #7bc47f;
+    --jade-white: #e8f5e9;
+    --jade-cream: #f5f0e8;
+    --gold: #c8a96e;
+    --gold-light: #e2c98a;
+    --gold-dark: #9a7a45;
+    --wood-dark: #1c1008;
+    --mist: rgba(232, 245, 233, 0.08);
   }
 
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
-
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
-
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
-
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
-
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
-
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
@@ -92,6 +89,136 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: "Inter", system-ui, sans-serif;
   }
+}
+
+.font-serif-cn {
+  font-family: "Noto Serif SC", "Georgia", serif;
+}
+
+.font-cinzel {
+  font-family: "Cinzel", "Georgia", serif;
+}
+
+.jade-gradient-bg {
+  background: linear-gradient(
+    135deg,
+    var(--jade-deep) 0%,
+    var(--jade-dark) 40%,
+    var(--wood-dark) 100%
+  );
+}
+
+.gold-text {
+  color: var(--gold);
+}
+
+.gold-border {
+  border-color: var(--gold-dark);
+}
+
+.jade-card {
+  background: rgba(26, 61, 27, 0.25);
+  border: 1px solid rgba(200, 169, 110, 0.2);
+  backdrop-filter: blur(12px);
+}
+
+.jade-card-hover {
+  transition: all 0.3s ease;
+}
+
+.jade-card-hover:hover {
+  background: rgba(26, 61, 27, 0.4);
+  border-color: rgba(200, 169, 110, 0.4);
+  transform: translateY(-2px);
+}
+
+.ornament-line {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ornament-line::before,
+.ornament-line::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold-dark),
+    transparent
+  );
+}
+
+.chinese-seal {
+  display: inline-block;
+  border: 2px solid var(--gold-dark);
+  padding: 4px 10px;
+  font-family: "Noto Serif SC", serif;
+  color: var(--gold);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.mist-overlay {
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(45, 106, 48, 0.15) 0%,
+    transparent 70%
+  );
+}
+
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+@keyframes float-mist {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float-mist {
+  animation: float-mist 8s ease-in-out infinite;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s ease-out forwards;
+}
+
+.quiz-option {
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.quiz-option:hover {
+  background: rgba(200, 169, 110, 0.15);
+  border-color: rgba(200, 169, 110, 0.5);
+}
+
+.quiz-option.selected {
+  background: rgba(200, 169, 110, 0.2);
+  border-color: var(--gold);
 }
